@@ -25,13 +25,13 @@ struct ContentView: View {
                 }
             case .loaded(let users):
                 if users.isEmpty {
-                    Text("No users found!")
+                    Text("Nothing to show here, try searching for a user")
                 } else {
                     List(users) { user in
                         NavigationLink {
                             UserDetailsView(
                                 viewModel: UserDetailsViewModel(
-                                    githubService: ProcessInfo.isPreview ? MockGithubService() : GithubService(),
+                                    githubService: ProcessInfo.isPreview ? MockGithubService() : viewModel.githubService,
                                     username: user.login
                                 )
                             )
@@ -55,13 +55,14 @@ struct ContentView: View {
                             await viewModel.searchUsers(query: searchText)
                         }
                     }
-                    .buttonStyle(.borderedProminent)
                 }
             }
         }
         .navigationTitle("GitHub Users")
         // searchCompletion of previous searches could be nice
-        .searchable(text: $searchText, prompt: "Search users...")
+        .searchable(text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: "Search users...")
         .onSubmit(of: .search) {
             Task {
                 await viewModel.searchUsers(query: searchText)

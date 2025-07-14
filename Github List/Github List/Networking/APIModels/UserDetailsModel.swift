@@ -24,7 +24,7 @@ struct UserDetailsModel: Codable, Identifiable, Equatable {
     struct Mock {
         static let user = UserDetailsModel(login: "mpollock",
                                            htmlUrl: URL(string: "https://github.com/mpollock/")!,
-                                           avatarUrl: URL(string: "https://picsum.photos/100"), // TODO: Replace with static image for testing and previews
+                                           avatarUrl: nil,
                                            name: "Michael Pollock",
                                            location: "Durham, NC",
                                            bio: "Software Engineer excited to build things for Livefront. Wants to test what happens when putting long text here. Blah blah blah blah blah. Lorem ipsuem, etcetera",

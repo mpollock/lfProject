@@ -17,7 +17,7 @@ final class UserDetailsViewModel {
     
     let shouldLoadOnAppear: Bool
 
-    init(githubService: GithubServiceProtocol = GithubService(), username: String) {
+    init(githubService: GithubServiceProtocol, username: String) {
         self.githubService = githubService
         self.username = username
         self.shouldLoadOnAppear = true

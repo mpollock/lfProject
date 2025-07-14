@@ -108,7 +108,6 @@ private struct StatView: View {
     }
 }
 
-// MARK: - Previews
 #Preview("Loading State") {
     NavigationStack {
         UserDetailsView(

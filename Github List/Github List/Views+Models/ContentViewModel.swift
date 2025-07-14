@@ -10,7 +10,7 @@ import Foundation
 @MainActor
 @Observable
 final class ContentViewModel {
-    private let githubService: GithubServiceProtocol
+    let githubService: GithubServiceProtocol
     
     private(set) var state: LoadingState<[UserModel]> = .loaded([])
     private var currentQuery: String = ""
@@ -18,7 +18,7 @@ final class ContentViewModel {
     
     let shouldLoadNextPage: Bool
     
-    init(githubService: GithubServiceProtocol = GithubService()) {
+    init(githubService: GithubServiceProtocol) {
         self.githubService = githubService
         self.shouldLoadNextPage = true
     }
@@ -58,7 +58,7 @@ final class ContentViewModel {
         
         do {
             let newUsers = try await githubService.searchUsers(query: currentQuery, page: currentPage).items
-            let allUsers = existingUsers + newUsers
+            let allUsers = (existingUsers + newUsers).uniqued()
             state = .loaded(allUsers)
         } catch {
             // Reset page on error
@@ -71,5 +71,11 @@ final class ContentViewModel {
         guard shouldLoadNextPage else { return }
 
         Task { await loadNextPage() }
+    }
+}
+
+extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        Array(Set(self))
     }
 }

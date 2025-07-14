@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserModel: Codable, Identifiable, Equatable {
+struct UserModel: Codable, Identifiable, Equatable, Hashable {
     var id: String {
         login
     }
@@ -17,7 +17,7 @@ struct UserModel: Codable, Identifiable, Equatable {
 
     struct Mock {
         static let user = UserModel(login: "mpollock", 
-                                    avatarUrl: URL(string: "https://picsum.photos/100"), // TODO: Replace with static image for testing and previews
+                                    avatarUrl: nil,
                                     name: "Michael Pollock")
     }
 }

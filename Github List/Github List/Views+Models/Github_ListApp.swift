@@ -11,7 +11,16 @@ import SwiftUI
 struct Github_ListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentViewModel())
+            ContentView(viewModel: ContentViewModel(githubService: Self.createGithubService()))
+        }
+    }
+    
+    static func createGithubService() -> GithubServiceProtocol {
+        if ProcessInfo.processInfo.arguments.contains("-UITest_useMockService") {
+            return MockGithubService(searchUsersResult: .success(SearchUserModel.Mock.result),
+                                     getUserResult: .success(UserDetailsModel.Mock.user))
+        } else {
+            return GithubService()
         }
     }
 }
