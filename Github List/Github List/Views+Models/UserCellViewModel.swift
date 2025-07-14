@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class UserCellViewModel: ObservableObject {
-    @Published var user: UserModel
+final class UserCellViewModel {
+    var user: UserModel
 
     init(user: UserModel) {
         self.user = user

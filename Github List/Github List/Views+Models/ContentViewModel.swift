@@ -10,28 +10,41 @@ import Foundation
 @MainActor
 @Observable
 final class ContentViewModel {
-    private let gitHubService: GithubService
+    private let githubService: GithubServiceProtocol
     
     private(set) var state: LoadingState<[UserModel]> = .loaded([])
     private var currentQuery: String = ""
     private var currentPage: Int = 1
     
-    init(gitHubService: GithubService = GithubService()) {
-        self.gitHubService = gitHubService
+    let shouldLoadNextPage: Bool
+    
+    init(githubService: GithubServiceProtocol = GithubService()) {
+        self.githubService = githubService
+        self.shouldLoadNextPage = true
+    }
+    
+    // Alternative initializer for testing/previews
+    init(githubService: GithubServiceProtocol = MockGithubService(),
+         initialState: LoadingState<[UserModel]>,
+         shouldLoadNextPage: Bool = false) {
+        self.githubService = githubService
+        self.state = initialState
+        self.shouldLoadNextPage = shouldLoadNextPage
     }
     
     func searchUsers(query: String) async {
-        guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+        let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
             state = .loaded([])
             return
         }
         
-        currentQuery = query
+        currentQuery = trimmed
         currentPage = 1
         state = .loading
         
         do {
-            let users = try await gitHubService.searchUsers(query: query, page: currentPage).items
+            let users = try await githubService.searchUsers(query: query, page: currentPage).items
             state = .loaded(users)
         } catch {
             state = .error(error)
@@ -44,7 +57,7 @@ final class ContentViewModel {
         currentPage += 1
         
         do {
-            let newUsers = try await gitHubService.searchUsers(query: currentQuery, page: currentPage).items
+            let newUsers = try await githubService.searchUsers(query: currentQuery, page: currentPage).items
             let allUsers = existingUsers + newUsers
             state = .loaded(allUsers)
         } catch {
@@ -52,5 +65,11 @@ final class ContentViewModel {
             currentPage -= 1
             state = .error(error)
         }
+    }
+    
+    func onLastUserCellAppear() {
+        guard shouldLoadNextPage else { return }
+
+        Task { await loadNextPage() }
     }
 }

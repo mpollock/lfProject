@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		4C23F2A22E25391D00F2AB4D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2A12E25391800F2AB4D /* NetworkError.swift */; };
 		4C23F2A42E25555100F2AB4D /* ProcessInfo+isPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2A32E25554600F2AB4D /* ProcessInfo+isPreview.swift */; };
+		4C23F2A72E255F5000F2AB4D /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2A62E255F5000F2AB4D /* UserDetailsView.swift */; };
+		4C23F2A92E2562C400F2AB4D /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2A82E2562C000F2AB4D /* UserDetailsViewModel.swift */; };
+		4C23F2AB2E25632F00F2AB4D /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2AA2E25632900F2AB4D /* UserDetailsModel.swift */; };
+		4C23F2AD2E25735000F2AB4D /* PreviewableAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2AC2E25733B00F2AB4D /* PreviewableAsyncImage.swift */; };
+		4C23F2AF2E2575DB00F2AB4D /* MockGithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2AE2E2575D600F2AB4D /* MockGithubService.swift */; };
+		4C23F2B12E257E0600F2AB4D /* ContentViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2B02E257DF600F2AB4D /* ContentViewModelTests.swift */; };
+		4C23F2B32E257F7700F2AB4D /* UserDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23F2B22E257F7200F2AB4D /* UserDetailsViewModelTests.swift */; };
 		4CF04CF52B5369D5003339DC /* Github_ListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF04CF42B5369D5003339DC /* Github_ListApp.swift */; };
 		4CF04CF72B5369D5003339DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF04CF62B5369D5003339DC /* ContentView.swift */; };
 		4CF04CFB2B5369D6003339DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF04CFA2B5369D6003339DC /* Assets.xcassets */; };
@@ -21,7 +28,7 @@
 		4CF04D182B542219003339DC /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF04D172B542219003339DC /* UserCellViewModel.swift */; };
 		4CF04D1B2B5426D2003339DC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF04D1A2B5426D2003339DC /* UserModel.swift */; };
 		4CF04D1D2B542D91003339DC /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF04D1C2B542D91003339DC /* LoadingState.swift */; };
-		4CF04D2D2B557610003339DC /* GithubListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF04D2C2B557610003339DC /* GithubListTests.swift */; };
+		4CF04D2D2B557610003339DC /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF04D2C2B557610003339DC /* TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,13 @@
 /* Begin PBXFileReference section */
 		4C23F2A12E25391800F2AB4D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		4C23F2A32E25554600F2AB4D /* ProcessInfo+isPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+isPreview.swift"; sourceTree = "<group>"; };
+		4C23F2A62E255F5000F2AB4D /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
+		4C23F2A82E2562C000F2AB4D /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		4C23F2AA2E25632900F2AB4D /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
+		4C23F2AC2E25733B00F2AB4D /* PreviewableAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewableAsyncImage.swift; sourceTree = "<group>"; };
+		4C23F2AE2E2575D600F2AB4D /* MockGithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGithubService.swift; sourceTree = "<group>"; };
+		4C23F2B02E257DF600F2AB4D /* ContentViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModelTests.swift; sourceTree = "<group>"; };
+		4C23F2B22E257F7200F2AB4D /* UserDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		4CF04CF12B5369D5003339DC /* Github List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF04CF42B5369D5003339DC /* Github_ListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github_ListApp.swift; sourceTree = "<group>"; };
 		4CF04CF62B5369D5003339DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,7 +65,7 @@
 		4CF04D1A2B5426D2003339DC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4CF04D1C2B542D91003339DC /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		4CF04D2A2B557610003339DC /* GithubListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CF04D2C2B557610003339DC /* GithubListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubListTests.swift; sourceTree = "<group>"; };
+		4CF04D2C2B557610003339DC /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +94,8 @@
 				4CF04D112B53799D003339DC /* ContentViewModel.swift */,
 				4CF04D152B5421F8003339DC /* UserCellView.swift */,
 				4CF04D172B542219003339DC /* UserCellViewModel.swift */,
+				4C23F2A62E255F5000F2AB4D /* UserDetailsView.swift */,
+				4C23F2A82E2562C000F2AB4D /* UserDetailsViewModel.swift */,
 			);
 			path = "Views+Models";
 			sourceTree = "<group>";
@@ -108,6 +124,7 @@
 				4CF04D042B536B8E003339DC /* Networking */,
 				4C23F2A52E255A5400F2AB4D /* Views+Models */,
 				4CF04D1C2B542D91003339DC /* LoadingState.swift */,
+				4C23F2AC2E25733B00F2AB4D /* PreviewableAsyncImage.swift */,
 				4C23F2A32E25554600F2AB4D /* ProcessInfo+isPreview.swift */,
 				4CF04CFA2B5369D6003339DC /* Assets.xcassets */,
 				4CF04CFC2B5369D6003339DC /* Preview Content */,
@@ -130,6 +147,7 @@
 				4CF04D052B536B99003339DC /* URLSession+Fetch.swift */,
 				4C23F2A12E25391800F2AB4D /* NetworkError.swift */,
 				4CF04D0D2B536E60003339DC /* GithubService.swift */,
+				4C23F2AE2E2575D600F2AB4D /* MockGithubService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -139,6 +157,7 @@
 			children = (
 				4CF04D0F2B5376B5003339DC /* SearchUserModel.swift */,
 				4CF04D1A2B5426D2003339DC /* UserModel.swift */,
+				4C23F2AA2E25632900F2AB4D /* UserDetailsModel.swift */,
 			);
 			path = APIModels;
 			sourceTree = "<group>";
@@ -146,7 +165,9 @@
 		4CF04D2B2B557610003339DC /* GithubListTests */ = {
 			isa = PBXGroup;
 			children = (
-				4CF04D2C2B557610003339DC /* GithubListTests.swift */,
+				4CF04D2C2B557610003339DC /* TestHelpers.swift */,
+				4C23F2B02E257DF600F2AB4D /* ContentViewModelTests.swift */,
+				4C23F2B22E257F7200F2AB4D /* UserDetailsViewModelTests.swift */,
 			);
 			path = GithubListTests;
 			sourceTree = "<group>";
@@ -253,14 +274,19 @@
 			files = (
 				4CF04CF72B5369D5003339DC /* ContentView.swift in Sources */,
 				4CF04D102B5376B5003339DC /* SearchUserModel.swift in Sources */,
+				4C23F2A92E2562C400F2AB4D /* UserDetailsViewModel.swift in Sources */,
 				4CF04D162B5421F8003339DC /* UserCellView.swift in Sources */,
 				4CF04D1B2B5426D2003339DC /* UserModel.swift in Sources */,
 				4CF04D182B542219003339DC /* UserCellViewModel.swift in Sources */,
 				4CF04D122B53799D003339DC /* ContentViewModel.swift in Sources */,
+				4C23F2AB2E25632F00F2AB4D /* UserDetailsModel.swift in Sources */,
+				4C23F2AD2E25735000F2AB4D /* PreviewableAsyncImage.swift in Sources */,
 				4C23F2A42E25555100F2AB4D /* ProcessInfo+isPreview.swift in Sources */,
+				4C23F2AF2E2575DB00F2AB4D /* MockGithubService.swift in Sources */,
 				4CF04D1D2B542D91003339DC /* LoadingState.swift in Sources */,
 				4C23F2A22E25391D00F2AB4D /* NetworkError.swift in Sources */,
 				4CF04CF52B5369D5003339DC /* Github_ListApp.swift in Sources */,
+				4C23F2A72E255F5000F2AB4D /* UserDetailsView.swift in Sources */,
 				4CF04D062B536B99003339DC /* URLSession+Fetch.swift in Sources */,
 				4CF04D0E2B536E60003339DC /* GithubService.swift in Sources */,
 			);
@@ -270,7 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF04D2D2B557610003339DC /* GithubListTests.swift in Sources */,
+				4C23F2B32E257F7700F2AB4D /* UserDetailsViewModelTests.swift in Sources */,
+				4C23F2B12E257E0600F2AB4D /* ContentViewModelTests.swift in Sources */,
+				4CF04D2D2B557610003339DC /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

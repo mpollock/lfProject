@@ -7,13 +7,16 @@
 
 import Foundation
 
-struct GithubService {
+protocol GithubServiceProtocol {
+    func searchUsers(query: String, page: Int) async throws -> SearchUserModel
+    func getUser(username: String) async throws -> UserDetailsModel
+}
+
+struct GithubService: GithubServiceProtocol {
     private let baseURL = "https://api.github.com"
     private let session: URLSession
     private let apiToken: String
-    
-    var shouldUseMockData = false
-    
+        
     // This is how I'd handle the API token for development - in production we'd likely use the keychain or some other solution
     init(session: URLSession = .shared) {
         guard let token = ProcessInfo.processInfo.environment["GITHUB_TOKEN"] else {
@@ -24,10 +27,6 @@ struct GithubService {
     }
     
     func searchUsers(query: String, page: Int = 1) async throws -> SearchUserModel {
-        if shouldUseMockData {
-            return SearchUserModel.Mock.result
-        }
-        
         guard let url = buildURL(path: "/search/users", queryItems: [
             URLQueryItem(name: "q", value: query),
             URLQueryItem(name: "page", value: String(page))
@@ -39,17 +38,13 @@ struct GithubService {
         return try await session.fetch(SearchUserModel.self, for: request)
     }
     
-    func getUser(username: String) async throws -> UserModel {
-        if shouldUseMockData {
-            return UserModel.Mock.user
-        }
-        
+    func getUser(username: String) async throws -> UserDetailsModel {
         guard let url = buildURL(path: "/users/\(username)") else {
             throw NetworkError.invalidURL
         }
         
         let request = buildRequest(for: url)
-        return try await session.fetch(UserModel.self, for: request)
+        return try await session.fetch(UserDetailsModel.self, for: request)
     }
     
     private func buildURL(path: String, queryItems: [URLQueryItem] = []) -> URL? {
