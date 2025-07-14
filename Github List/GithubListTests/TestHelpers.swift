@@ -9,11 +9,7 @@ import XCTest
 @testable import Github_List
 
 final class GithubListTests: XCTestCase {
-    var githubService = GithubService()
-
-    override func setUpWithError() throws {
-        githubService.shouldUseMockData = true
-    }
+    var githubService = MockGithubService()
 
     func testSearch() throws {
         Task {
